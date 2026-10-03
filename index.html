@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ani Okropiridze | Finance & Accounting Portfolio</title>
+<meta name="description" content="Portfolio of Ani Okropiridze, Finance and Accounting student at Rutgers Business School.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #CC0033;
+    --red-dark: #a8002a;
+    --red-soft: #fde8ec;
+    --text: #1a1a1a;
+    --muted: #666666;
+    --bg: #ffffff;
+    --gray: #f7f7f7;
+    --border: #e5e5e5;
+    --shadow: 0 2px 8px rgba(0,0,0,0.05);
+    --shadow-lg: 0 14px 32px rgba(0,0,0,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1rem; }
+  .logo {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: var(--red); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; font-weight: 800; letter-spacing: 0.5px;
+  }
+  .nav-links { display: flex; gap: 6px; list-style: none; }
+  .nav-links a {
+    display: block; padding: 8px 12px; border-radius: 8px;
+    font-size: 0.9rem; font-weight: 500; color: var(--muted);
+    transition: color .2s, background .2s;
+  }
+  .nav-links a:hover { color: var(--red); background: var(--red-soft); }
+
+  /* HERO */
+  .hero { padding: 72px 0 88px; }
+  .hero-grid { display: flex; flex-direction: column; align-items: center; gap: 40px; text-align: center; }
+  .avatar {
+    flex: 0 0 auto;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: linear-gradient(145deg, #f0f0f0, #dcdcdc);
+    border: 6px solid #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12), 0 0 0 1px var(--border);
+    object-fit: cover; object-position: center 30%;
+  }
+  .eyebrow {
+    display: inline-block; font-size: 0.8rem; font-weight: 600;
+    color: var(--red); background: var(--red-soft);
+    padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;
+  }
+  .hero h1 { font-size: 2.6rem; line-height: 1.1; font-weight: 800; letter-spacing: -1px; margin-bottom: 20px; }
+  .hero p.statement { font-size: 1.1rem; color: var(--muted); max-width: 580px; margin-bottom: 32px; }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .btn {
+    display: inline-block; padding: 13px 26px; border-radius: 10px;
+    font-weight: 600; font-size: 0.95rem; border: 1px solid transparent;
+    transition: transform .2s, box-shadow .2s, background .2s, border-color .2s, color .2s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--red); color: #fff; box-shadow: 0 4px 14px rgba(204,0,51,0.3); }
+  .btn-primary:hover { background: var(--red-dark); box-shadow: 0 8px 20px rgba(204,0,51,0.35); }
+  .btn-secondary { background: #fff; color: var(--text); border-color: var(--border); }
+  .btn-secondary:hover { border-color: var(--red); color: var(--red); box-shadow: var(--shadow); }
+
+  /* SECTIONS */
+  section { padding: 88px 0; }
+  .alt { background: var(--gray); }
+  .section-title { font-size: 2rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 48px; }
+  .section-title::after {
+    content: ""; display: block; width: 48px; height: 4px;
+    background: var(--red); border-radius: 2px; margin-top: 12px;
+  }
+
+  /* SKILLS */
+  .skill-groups { display: grid; gap: 20px; }
+  .skill-group {
+    background: #fff; border: 1px solid var(--border); border-radius: 12px;
+    padding: 28px; box-shadow: var(--shadow);
+  }
+  .skill-group h3 {
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.2px;
+    color: var(--muted); font-weight: 600; margin-bottom: 16px;
+  }
+  .badges { display: flex; flex-wrap: wrap; gap: 10px; }
+  .badge {
+    background: var(--red-soft); color: var(--red);
+    padding: 8px 16px; border-radius: 999px;
+    font-size: 0.88rem; font-weight: 500;
+    transition: background .2s, color .2s, transform .2s;
+  }
+  .badge:hover { background: var(--red); color: #fff; transform: translateY(-2px); }
+
+  /* PROJECTS */
+  .cards { display: grid; gap: 24px; grid-template-columns: 1fr; }
+  .card {
+    background: #fff; border: 1px solid var(--border); border-radius: 12px;
+    padding: 28px; box-shadow: var(--shadow);
+    display: flex; flex-direction: column;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: #d6d6d6; }
+  .tag {
+    align-self: flex-start; font-size: 0.75rem; font-weight: 600;
+    color: var(--red); background: var(--red-soft);
+    padding: 4px 12px; border-radius: 999px; margin-bottom: 16px;
+  }
+  .card h3 { font-size: 1.15rem; line-height: 1.35; font-weight: 700; margin-bottom: 12px; }
+  .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 24px; flex: 1; }
+  .card .link { font-weight: 600; font-size: 0.9rem; color: var(--red); transition: letter-spacing .2s; }
+  .card .link:hover { letter-spacing: 0.4px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+  .card .alt-link { color: var(--muted); }
+  .card .alt-link:hover { color: var(--red); }
+
+  /* FOOTER */
+  footer { background: var(--text); color: #fff; padding: 72px 0 32px; }
+  footer h2 { font-size: 2rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+  footer h2::after {
+    content: ""; display: block; width: 48px; height: 4px;
+    background: var(--red); border-radius: 2px; margin-top: 12px;
+  }
+  footer p.lead { color: #bdbdbd; margin: 20px 0 28px; }
+  .contact-links { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 48px; }
+  .contact-links a {
+    padding: 11px 22px; border-radius: 10px; font-weight: 500; font-size: 0.92rem;
+    border: 1px solid #444; transition: background .2s, border-color .2s, transform .2s;
+  }
+  .contact-links a:hover { background: var(--red); border-color: var(--red); transform: translateY(-2px); }
+  .copyright { border-top: 1px solid #333; padding-top: 24px; color: #8a8a8a; font-size: 0.85rem; }
+
+  /* FADE IN */
+  .fade { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+  .fade.visible { opacity: 1; transform: none; }
+  .card.fade.visible:hover { transform: translateY(-4px); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* MOBILE NAV TWEAKS */
+  @media (max-width: 767px) {
+    .brand span { display: none; }
+    .nav-links a { padding: 8px 9px; font-size: 0.85rem; }
+    .hero { padding: 48px 0 64px; }
+    section { padding: 64px 0; }
+  }
+
+  /* DESKTOP */
+  @media (min-width: 768px) {
+    .hero-grid { flex-direction: row; align-items: center; gap: 72px; text-align: left; }
+    .avatar { width: 280px; height: 280px; }
+    .hero h1 { font-size: 3.2rem; }
+    .btn-row { justify-content: flex-start; }
+    .skill-groups { gap: 24px; }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#about" class="brand"><div class="logo">AO</div><span>Ani's Portfolio</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="about">
+  <div class="container hero-grid">
+    <img class="avatar fade" src="headshot.jpg" alt="Headshot of Ani Okropiridze" width="280" height="280">
+    <div class="fade">
+      <span class="eyebrow">Rutgers Business School | Finance &amp; Accounting</span>
+      <h1>Ani Okropiridze</h1>
+      <p class="statement">I am a Finance and Accounting student at Rutgers Business School – New Brunswick, passionate about financial analysis, credit research, and building a career in investment and corporate finance.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="mailto:ani.oqropiridze7@gmail.com">Email Me</a>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/ani-okropiridze" target="_blank" rel="noopener">LinkedIn Profile →</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="alt" id="skills">
+  <div class="container">
+    <h2 class="section-title fade">Skills</h2>
+    <div class="skill-groups">
+      <div class="skill-group fade">
+        <h3>Financial Skills</h3>
+        <div class="badges">
+          <span class="badge">Financial Modeling</span>
+          <span class="badge">Financial Analysis</span>
+          <span class="badge">Credit Analysis</span>
+          <span class="badge">Ratio Analysis</span>
+          <span class="badge">Valuation</span>
+          <span class="badge">Fixed Income Analysis</span>
+          <span class="badge">Equity Research</span>
+        </div>
+      </div>
+      <div class="skill-group fade">
+        <h3>Technical Tools</h3>
+        <div class="badges">
+          <span class="badge">Microsoft Excel (Advanced)</span>
+          <span class="badge">PowerPoint</span>
+          <span class="badge">Word</span>
+          <span class="badge">Bloomberg Terminal</span>
+          <span class="badge">SQL (Basic)</span>
+          <span class="badge">Git/GitHub</span>
+        </div>
+      </div>
+      <div class="skill-group fade">
+        <h3>Professional Skills</h3>
+        <div class="badges">
+          <span class="badge">Teamwork</span>
+          <span class="badge">Communication</span>
+          <span class="badge">Presentation</span>
+          <span class="badge">Problem Solving</span>
+          <span class="badge">Attention to Detail</span>
+          <span class="badge">Time Management</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title fade">Projects</h2>
+    <div class="cards">
+      <article class="card fade">
+        <span class="tag">Fixed Income (Rutgers Business School)</span>
+        <h3>Ford Motor Company – Credit Worthiness Report</h3>
+        <p>A fixed income analysis of Ford Motor Company from a bond investor's perspective, built to decide whether to invest in Ford's debt. It covers the income statement, balance sheet and cash flows, liquidity, leverage (debt/EBITDA), fixed charge coverage, the debt maturity profile, management, and key risks such as tariffs, EV losses and a possible rating downgrade. Conclusion: invest in Ford's debt, supported by its BBB- investment-grade rating, a 4.7x fixed charge coverage and a strong U.S. franchise.</p>
+        <div class="links">
+          <a class="link" href="projects/Ford_Motor_Company_Credit_Report.pdf" target="_blank" rel="noopener">View Report →</a>
+          <a class="link alt-link" href="https://github.com/Ani-Okropiridze/Ani-Okropiridze.github.io" target="_blank" rel="noopener">GitHub Repo →</a>
+        </div>
+      </article>
+      <article class="card fade">
+        <span class="tag">Investments (Rutgers Business School)</span>
+        <h3>Southwest Airlines vs. United Airlines – Equity Analysis</h3>
+        <p>A five-person team presentation comparing Southwest (LUV) and United (UAL) on revenue, profitability, valuation, capital structure, fleet strategy and the 2026 jet fuel crisis, with bull and bear cases for each. Conclusion: United is the stronger business today, while Southwest is the higher-conviction turnaround bet.</p>
+        <div class="links">
+          <a class="link" href="projects/Southwest_vs_United_Equity_Analysis.pdf" target="_blank" rel="noopener">View Presentation →</a>
+          <a class="link alt-link" href="projects/Southwest_vs_United_Equity_Analysis.pptx" target="_blank" rel="noopener" download>Download PPTX →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <p class="lead">Let's connect — I'd love to hear from you.</p>
+    <div class="contact-links">
+      <a href="https://github.com/Ani-Okropiridze" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/ani-okropiridze" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:ani.oqropiridze7@gmail.com">Email</a>
+    </div>
+    <div class="copyright">© <span id="year">2026</span> Ani Okropiridze · Rutgers Business School</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  var els = document.querySelectorAll(".fade");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+  } else {
+    els.forEach(function (el) { el.classList.add("visible"); });
+  }
+</script>
+</body>
+</html>
